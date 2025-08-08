@@ -1,0 +1,74 @@
+/* Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.level-badge {
+    @apply px-3 py-1 rounded-full text-white text-sm font-medium uppercase;
+}
+
+.beginner-badge {
+    @apply bg-yellow-400 text-gray-800;
+}
+
+.intermediate-badge {
+    @apply bg-green-500;
+}
+
+.advanced-badge {
+    @apply bg-red-500;
+}
+
+#roadmap-content {
+    @apply whitespace-pre-line bg-gray-50 p-4 rounded-lg border border-gray-200 font-mono text-sm;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#result-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Form styles */
+.input-group {
+    @apply space-y-1;
+}
+
+.input-group label {
+    @apply block text-gray-700 text-sm font-medium;
+}
+
+.input-group input, .input-group select {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition;
+}
+
+/* Button styles */
+.btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+}
+
+.btn-pdf {
+    @apply bg-green-600 hover:bg-green-700 text-white flex items-center gap-2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #recommendation-form {
+        @apply grid-cols-1;
+    }
+}

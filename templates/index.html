@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Education Recommender</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-blue-600 mb-2">
+                <i class="fas fa-robot mr-2"></i>AI Education Pathfinder
+            </h1>
+            <p class="text-gray-600">Get personalized learning roadmaps powered by machine learning</p>
+        </header>
+
+        <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-8">
+            <form id="recommendation-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Form fields -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Age</label>
+                        <input type="number" name="age" min="13" max="25" 
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Math Skill (1-10)</label>
+                        <input type="number" name="math_skill" min="1" max="10"
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">GPA (0-10)</label>
+                        <input type="number" name="gpa" min="0" max="10" step="0.1"
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Learning Goal</label>
+                        <select name="goal" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="learn_ai">AI/Machine Learning</option>
+                            <option value="web_dev">Web Development</option>
+                            <option value="data_science">Data Science</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <button type="submit" 
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition duration-200">
+                        Generate My Roadmap
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="result-section" class="hidden bg-white rounded-xl shadow-md overflow-hidden p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold text-gray-800">
+                    Your <span id="level-badge" class="px-3 py-1 rounded-full text-white"></span> Roadmap
+                </h2>
+                <button id="export-pdf" 
+                        class="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </button>
+            </div>
+            
+            <div id="roadmap-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg"></div>
+            
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold mb-4 flex items-center gap-2">
+                    <i class="fas fa-chart-line"></i> Progress Tracking
+                </h3>
+                <canvas id="progress-chart" class="w-full h-64"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
